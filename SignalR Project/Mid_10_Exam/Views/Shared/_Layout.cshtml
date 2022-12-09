@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <environment include="Development">
+        <link rel="stylesheet" href="~/libs/bootstrap/css/bootstrap.css">
+        <script src="~/libs/bootstrap/js/bootstrap.bundle.js"></script>
+    </environment>
+    
+    <style>
+        body{
+            padding-top:70px;
+        }
+    </style>
+    @await RenderSectionAsync("styles", false)
+</head>
+<body>
+    <nav class="navbar navbar-light bg-dark fixed-top navbar-expand-md  shadow-sm">
+        <div class="container-fluid">
+            <span class="navbar-brand">
+                <img class="bg-dark" style="position: absolute; border-radius:30px; width: 60px; height: 60px; top:1px;" src="~/Uploads/5.jpg" />
+            </span>
+            <span class="navbar-brand" style="font-size: 2rem; color: gold; font-weight: bold; padding-left: 3rem;">ChatApp</span>
+            <div class="navbar-collapse collapse">
+                <ul class="navbar-nav nav ms-auto">
+                    <li class="nav-item">
+                        <a style="color: gold;" class="nav-link" asp-action="Index" asp-controller="Home" >Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a style="color: gold;" class="nav-link" asp-action="Index" asp-controller="Chat">Messenger</a>
+                    </li>
+                     
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        @RenderBody()
+    </div>
+    @await RenderSectionAsync("scripts", false)
+</body>
+</html>
